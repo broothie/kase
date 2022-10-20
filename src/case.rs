@@ -9,7 +9,6 @@ pub enum Case {
     Dot,
     Camel,
     Pascal,
-    Lower,
 }
 
 impl Case {
@@ -32,8 +31,6 @@ impl Case {
             Case::Path
         } else if string.contains(".") {
             Case::Dot
-        } else if string.chars().all(|ch| ch.is_lowercase()) {
-            Case::Lower
         } else {
             match string.chars().nth(0) {
                 Some(ch) if ch.is_uppercase() => Case::Pascal,
@@ -102,8 +99,6 @@ impl Case {
 
                 tokens.iter().map(|token| token.to_lowercase()).collect()
             }
-
-            Case::Lower => vec![string.to_string()],
         }
     }
 
@@ -133,12 +128,6 @@ impl Case {
             Case::Pascal => tokens
                 .iter()
                 .map(|token| capitalize(token))
-                .collect::<Vec<String>>()
-                .join(""),
-
-            Case::Lower => tokens
-                .iter()
-                .map(|token| token.to_lowercase())
                 .collect::<Vec<String>>()
                 .join(""),
         }
@@ -225,11 +214,6 @@ mod test {
                 Test::Guess("PascalCase"),
                 Test::Tokenize("PascalCase", vec!["pascal", "case"]),
                 Test::Join(vec!["pascal", "case"], "PascalCase"),
-            ],
-            Case::Lower => vec![
-                Test::Guess("lowercase"),
-                Test::Tokenize("lowercase", vec!["lowercase"]),
-                Test::Join(vec!["lower", "case"], "lowercase"),
             ],
         }
     }

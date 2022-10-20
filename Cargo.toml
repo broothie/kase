@@ -1,6 +1,6 @@
 [package]
 name = "kase"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Convert from one case to another. Input case is determined on a best-guess basis, but can be overridden with the --from flag."
 
