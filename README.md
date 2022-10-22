@@ -34,7 +34,7 @@ myVariable
 $ kase pascal myVariable
 MyVariable
 
-# If the best-guess for an input isn't right for your use case, you can use the `--from` flag:
+$ # If the best-guess for an input isn't right for your use case, you can use the `--from` flag:
 $ kase dot my_dir/my_path
 my.dir/my.path
 
