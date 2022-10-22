@@ -1,5 +1,7 @@
 # `kase`
 
+Convert from one case to another. Input case is determined on a best-guess basis, but can be overridden with the --from flag.
+
 ## Installation
 
 ```shell script
@@ -10,7 +12,7 @@ cargo install kase
 
 ### Usage Example
 
-```
+```console
 $ kase snake MyVariable
 my_variable
 
@@ -42,7 +44,8 @@ my_dir.my_path
 
 ### Usage Output
 
-```
+```console
+$ kase -h
 Convert from one case to another. Input case is determined on a best-guess basis, but can be overridden with the --from flag.
 
 Usage: kase [OPTIONS] <CASE> [INPUT]
