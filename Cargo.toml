@@ -1,10 +1,10 @@
 [package]
 name = "kase"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Convert from one case to another. Input case is determined on a best-guess basis, but can be overridden with the --from flag."
 repository = "https://github.com/broothie/kase"
-license-file = "LICENSE"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
