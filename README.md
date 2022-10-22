@@ -10,7 +10,7 @@ cargo install kase
 
 ## Usage
 
-### Usage Example
+### Example
 
 ```console
 $ kase snake MyVariable
@@ -42,7 +42,7 @@ $ kase --from path dot my_dir/my_path
 my_dir.my_path
 ```
 
-### Usage Output
+### Options
 
 ```console
 $ kase -h
