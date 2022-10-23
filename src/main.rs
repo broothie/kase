@@ -28,28 +28,29 @@ struct CLI {
 fn main() -> Result<()> {
     let cli = CLI::parse();
 
-    let input = cli.input.unwrap_or_else(|| {
-        io::stdin()
+    let lines: Vec<String> = match cli.input {
+        Some(input) => input.lines().map(|s| s.to_string()).collect::<Vec<_>>(),
+        None => io::stdin()
             .lock()
             .lines()
-            .next()
-            .expect("failed to read from stdin")
-            .expect("failed to read from stdin")
-    });
+            .map(|line| line.unwrap())
+            .collect::<Vec<_>>(),
+    };
 
-    let from = cli.from.unwrap_or(Case::guess(&input));
-    if cli.debug {
-        println!("from: {:?}", from);
+    for line in lines {
+        let from = cli.from.to_owned().unwrap_or_else(|| Case::guess(&line));
+        if cli.debug {
+            println!("from: {:?}", from);
+        }
+
+        let tokens = from.tokenize(&line);
+        if cli.debug {
+            println!("tokens: {:?}", tokens);
+        }
+
+        let output = cli.case.join(tokens);
+        println!("{}", output);
     }
-
-    let tokens = from.tokenize(&input);
-    if cli.debug {
-        println!("tokens: {:?}", tokens);
-    }
-
-    let output = cli.case.join(tokens);
-
-    println!("{}", output);
 
     Ok(())
 }

@@ -1,6 +1,6 @@
 [package]
 name = "kase"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "Convert from one case to another. Input case is determined on a best-guess basis, but can be overridden with the --from flag."
 repository = "https://github.com/broothie/kase"
